@@ -1,0 +1,79 @@
+// Class representing a Student
+
+class Student {
+
+    private int rollNo;
+    private String name;
+
+    // Constructor
+    public Student(int rollNo, String name) {
+        this.rollNo = rollNo;
+        this.name = name;
+    }
+
+    // Getter methods
+    public int getRollNo() {
+        return rollNo;
+    }
+
+    public String getName() {
+        return name;
+    }
+}
+
+// Class representing Test which inherits from Student
+class Test extends Student {
+
+    private int marks1;
+    private int marks2;
+
+    // Constructor
+    public Test(int rollNo, String name, int marks1, int marks2) {
+        super(rollNo, name); // Calling the constructor of the Student class
+        this.marks1 = marks1;
+        this.marks2 = marks2;
+    }
+
+    // Getter methods
+    public int getMarks1() {
+        return marks1;
+    }
+
+    public int getMarks2() {
+        return marks2;
+    }
+}
+
+// Class representing Result which extends Test
+class Result extends Test {
+
+    // Constructor
+    public Result(int rollNo, String name, int marks1, int marks2) {
+        super(rollNo, name, marks1, marks2); // Calling the constructor of the Test class
+    }
+
+    // Method to calculate total marks
+    public int calculateTotal() {
+        return getMarks1() + getMarks2();
+    }
+
+    // Method to display details
+    public void displayDetails() {
+        System.out.println("Roll No: " + getRollNo());
+        System.out.println("Name: " + getName());
+        System.out.println("Marks 1: " + getMarks1());
+        System.out.println("Marks 2: " + getMarks2());
+        System.out.println("Total Marks: " + calculateTotal());
+    }
+}
+
+// Main class to test the functionality
+public class Mainn {
+
+    public static void main(String[] args) {
+        // Creating a Result object
+        Result result = new Result(1, "John Doe", 85, 90);
+        // Displaying the details
+        result.displayDetails();
+    }
+}
