@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+class OddNumberException extends Exception {
+    public OddNumberException(String message) {
+        super(message);
+    }
+}
+public class exp07_exception {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int number = sc.nextInt();
+        try {
+            checkEven(number); // Check if the number is even
+            System.out.println("The number is even.");
+        } catch (OddNumberException e) {
+            System.out.println(e.getMessage()); // Display the exception message
+        } 
+    }
+    // Method to check if the number is even
+    public static void checkEven(int num) throws OddNumberException {
+        if (num % 2 != 0) { // Check if the number is odd
+            throw new OddNumberException("OddNumberException: The number " + num + " is odd.");
+        }
+    }
+}
