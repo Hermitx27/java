@@ -1,0 +1,50 @@
+mac folder file
+package MCA;
+public class student 
+{
+// Student details
+ String name;
+ int rollNumber;
+ int[] marks; 
+ // Array to store marks of multiple subjects
+// Constructor to accept student details
+public student(String name, int rollNumber, int[] marks) {
+this.name = name;
+this.rollNumber = rollNumber;
+this.marks = marks;
+}
+// Method to display student details
+public void display() {
+System.out.println("Student Name: " + name);
+System.out.println("Roll Number: " + rollNumber);
+}
+// Method to calculate total marks
+public int calculateTotalMarks() {
+int total = 0;
+for (int mark : marks) {
+total += mark;
+}
+return total;
+}
+// Method to calculate percentage
+public float calculatePercentage() {
+int totalMarks = calculateTotalMarks();
+return (float) totalMarks / marks.length;
+}}
+
+imported outside folder file
+import MCA.student; // Import the Student class from the MCA package
+
+public class main {
+public static void main(String[] args)
+ {
+int[] marks = {85, 90, 78, 88, 92}; 
+
+student student = new student("Alice Johnson", 101, marks);
+student.display();
+int totalMarks = student.calculateTotalMarks();
+System.out.println("Total Marks: " + totalMarks);
+float percentage = student.calculatePercentage();
+System.out.println("Percentage: " + percentage + "%");
+}
+}
