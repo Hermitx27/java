@@ -1,0 +1,56 @@
+import  java.util.*;
+public class exp06_vector{
+    public static void main(String args[]){
+
+        Vector<String> student = new Vector<String>();
+        Scanner sc = new Scanner(System.in);
+        int choice;
+
+        do { 
+            System.out.println("Student Management Data");
+            System.out.println("1 : Add");
+            System.out.println("2 : Delete");
+            System.out.println("3 : Display");
+            System.out.println("4 : Exit");
+             System.out.println("Enter Your choice");
+            choice = sc.nextInt();
+            sc.nextLine();//consume new line after entering intergre
+
+            switch(choice) {
+                case 1:
+                    System.out.println("Enter Student Name: ");
+                    String name = sc.nextLine();
+                    student.add(name);
+                     System.out.println(name + "name has been added to the list ");                    
+                    break;
+                case 2:
+                    System.out.println("Enter Student Name");
+                    String deletename = sc.nextLine();
+                    if(student.remove(deletename)){
+                     System.out.println(deletename + "name has been deleted from the list ");    }
+                     else{
+                          System.out.println(deletename + "name not available in the  list "); 
+                     }                
+                    break;
+                case 3:
+                    System.out.println("Student List");
+                    if(student.isEmpty()){
+                        System.out.println("List is empty");
+                    }else{
+                        for(String namestd : student){
+                        System.out.println(namestd);}
+                    }
+                    break;
+                case 4:
+                    System.out.println("Exiting");
+                    break;
+
+                default:
+                    System.out.println("Invalid choice");
+            }
+            
+        } while (choice!=4);
+        sc.close();
+
+    }
+}
