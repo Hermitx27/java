@@ -1,0 +1,72 @@
+import java.util.Scanner;
+
+public class SimpleMatrixOperations {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Get the size of the matrices from the user
+        System.out.print("Enter the number of rows: ");
+        int rows = scanner.nextInt();
+        System.out.print("Enter the number of columns: ");
+        int columns = scanner.nextInt();
+
+        // Create the matrices
+        int[][] firstMatrix = new int[rows][columns];
+        int[][] secondMatrix = new int[rows][columns];
+        int[][] sumMatrix = new int[rows][columns]; // To store the sum
+        int[][] transposeMatrix = new int[columns][rows]; // To store the transpose
+
+        // Input for the first matrix
+        System.out.println("Enter elements for the first matrix:");
+        fillMatrix(scanner, firstMatrix);
+
+        // Input for the second matrix
+        System.out.println("Enter elements for the second matrix:");
+        fillMatrix(scanner, secondMatrix);
+
+        // Add the two matrices
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                sumMatrix[i][j] = firstMatrix[i][j] + secondMatrix[i][j];
+            }
+        }
+
+        // Display the sum of the matrices
+        System.out.println("\nSum of the two matrices:");
+        displayMatrix(sumMatrix);
+
+        // Calculate the transpose of the sum matrix
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                transposeMatrix[j][i] = sumMatrix[i][j]; // Swap rows and columns
+            }
+        }
+
+        // Display the transpose of the sum matrix
+        System.out.println("\nTranspose of the sum matrix:");
+        displayMatrix(transposeMatrix);
+
+        // Close the scanner
+        scanner.close();
+    }
+
+    // Method to fill a matrix with user input
+    public static void fillMatrix(Scanner scanner, int[][] matrix) {
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
+                System.out.print("Enter element [" + i + "][" + j + "]: ");
+                matrix[i][j] = scanner.nextInt();
+            }
+        }
+    }
+
+    // Method to display a matrix
+    public static void displayMatrix(int[][] matrix) {
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
+                System.out.print(matrix[i][j] + " ");
+            }
+            System.out.println(); // Move to the next line after each row
+        }
+    }
+}
