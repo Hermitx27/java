@@ -1,0 +1,56 @@
+
+public class exp05stringbuffer {
+
+    public static void main(String args[]) {
+
+        String data = "Hello World!";
+        System.out.println("Length " + data.length());
+
+        System.out.println("char at " + data.charAt(4));
+
+        System.out.println("index of " + data.indexOf("Wo"));
+
+        System.out.println("substring " + data.substring(4));
+
+        System.out.println("uppercase " + data.toUpperCase());
+
+        System.out.println("lowercase " + data.toLowerCase());
+
+        System.out.println("replace " + data.replace("World", "java"));
+
+        System.out.println("euals " + data.equals("Hello World!"));
+
+        System.out.println("contain " + data.contains("World"));
+
+        StringBuffer newStr = new StringBuffer("Hello World");
+
+        System.out.println("Append: " + newStr.append("sujal"));
+
+        System.out.println("Insert: " + newStr.insert(5, "java"));
+
+        System.out.println("Replace: " + newStr.replace(6 , 13, "Bollo"));
+
+        System.out.println("Delate: " + newStr.delete(4, 6));
+
+    }
+}
+second file
+
+import java.util.Scanner;
+
+class exp05palindrome{
+    public static void main(String[] args){
+
+        Scanner sc = new Scanner(System.in);
+         System.out.print("Enter a string: ");
+        String OriginalString = sc.nextLine();
+        String ReverseString = new  StringBuilder(OriginalString).reverse().toString();
+
+        System.out.println(" Reverse String" + ReverseString);
+        if(OriginalString.equalsIgnoreCase(ReverseString)){
+            System.out.println("String is palindrome");
+        }else{
+            System.out.println("String is not palindrome");
+        }
+    }
+}
