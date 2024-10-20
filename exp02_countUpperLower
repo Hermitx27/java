@@ -1,0 +1,65 @@
+import java.util.Scanner;
+
+
+class StringOperation{
+    String inputString ;
+
+    StringOperation(String inputString){
+        this.inputString = inputString;
+    }
+    int countUppercase(){
+        int count =0;
+        for(char c : inputString.toCharArray()){
+            if(Character.isUpperCase(c)){
+                count++;
+            }
+        }return count;
+    }
+
+    int countLowercase(){
+        int count = 0;
+        for(char c : inputString.toCharArray()){
+            if(Character.isLowerCase(c)){
+                count++;
+            }
+        }
+        return count;
+    }
+
+    int countVowels(){
+        int count = 0;
+        for(char c: inputString.toCharArray()){
+            if(isVowel(c)){
+                count++;
+            }
+        }
+        return count;
+    }
+    boolean isVowel(char a){
+        char letter = Character.toLowerCase(a);
+        return (letter == 'a' || letter == 'e' || letter == 'i' ||letter == 'o' ||letter == 'u' );
+        
+    }
+    int getTotalCharacter(){
+        return inputString.length();
+    } 
+    void display(){
+        System.out.println("Input String: " + this.inputString);
+        System.out.println("Upper Case Letter:  " + countUppercase());
+        System.out.println("Lower Case Letter:  " + countLowercase());
+        System.out.println("Number of vowels: " + countVowels());
+        System.out.println("Total String:  " + getTotalCharacter());
+    }
+}
+public class Stringdata{
+    public static void main(String args[]  ){
+        Scanner sc  = new Scanner(System.in);
+
+        System.out.println("Enter String");
+        String data = sc.nextLine();
+        StringOperation stringOperation = new StringOperation(data);
+        stringOperation.display();
+        sc.close();
+        
+    }
+}
